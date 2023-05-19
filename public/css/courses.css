@@ -1,0 +1,15 @@
+*{
+    /* border: dotted 1px #000; */
+}
+
+
+.card--courses{
+    margin: 16px;
+}
+
+.img--card{
+    padding: 10px;
+    border-radius: 6px;
+    /* border: dotted 5px #000; */
+}
+
