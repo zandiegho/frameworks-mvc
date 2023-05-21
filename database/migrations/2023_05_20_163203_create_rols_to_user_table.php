@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rol_to_users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('rols_to_user', function (Blueprint $table) {
+            $table->id(); 
+            $table->unsignedBigInteger('rol_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('rol_id')->references('id')->on('rols');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rol_to_users');
+        Schema::dropIfExists('rols_to_user');
     }
 };

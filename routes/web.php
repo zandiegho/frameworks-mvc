@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\dashboard\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\dashboard\PostController;
  
 
 Route::get('/', function(){
-    return view('/welcome');
+    return view('/home');
 });
 
 Route::get('/contact', function(){
@@ -38,12 +39,19 @@ Route::get('/message-v2/{name?}' , function($name = "Usuario Visitante no identi
     return "Hello, I'm $name";
 });
 
+#######################################################################
+Route::resource('dashboard/category', 'dashboard\CategoryController');#
+Route::resource('dashboard/user', 'dashboard\UserController');        #
+                                                                      #
+// Route::get('/', 'web\WebController@index')->name('index');         #
+#######################################################################
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/posts', PostController::class);
+Route::resource('/user', UserController::class);
 Route::resource('/categories', CategoryController::class)->name('index' , 'showIndex');
 
 
