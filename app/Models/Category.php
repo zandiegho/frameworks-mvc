@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['title' , 'slug'];
+    protected $fillable = ['title' , 'url_clean'];
     # 1 categoria tiene muchas publicaciones, relaciona de uno a muchos -> hasMany
 
-    public function posts(){
+    public function post(){
         return $this->hasMany(Post::class);
     }
 }

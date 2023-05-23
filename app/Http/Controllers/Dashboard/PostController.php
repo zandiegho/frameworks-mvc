@@ -84,4 +84,8 @@ class PostController extends Controller
     {
         //
     }
+
+/*     public function category(Category $category){
+        return $this->succesResponse($category->$post);
+    } */
 }
