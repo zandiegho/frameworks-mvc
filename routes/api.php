@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::resource('post', 'api\PostController@category')->only([
-    'index', 'show'
-]);
+Route::resource('post', 'api\PostController@category')->only(
+    ['index', 'show']
+);
 
 Route::get('post/{category}/category', 'api\PostController@category');
 Route::get('/category', 'api\CategoryController@index');

@@ -9,17 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ValidarRolAdmin
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next): Response
+
+    public function handle($request, Closure $next)
     {
-        if (auth()->user()->rol->rol_type == 'admin') {
+        if (auth()->user()->rol_id == 1) {
             return $next($request);
         }
         return redirect('/');
-    
     }
 }
