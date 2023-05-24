@@ -33,8 +33,7 @@ class CategoryController extends Controller
        // Mostrar el formulario de creación en la vista create.blade.php
        return view('dashboard.category.create');
     }
-
-
+    
 
     /**
      * Store a newly created resource in storage.

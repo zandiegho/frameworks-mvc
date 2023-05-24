@@ -13,7 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>TITULO</th>
-                    {{-- <th>SLUG</th> --}}
+                    <th>Fecha de cración</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -23,10 +23,13 @@
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->title}}</td>
+                        <td>{{$category->created_at}}</td>
                         {{-- <td>{{$category->slug}}</td> --}}
                         <td>
                             <a href="{{route('categories.show', $category->id)}}" class="btn btn-info">Ver</a>
                             <a href="{{route('categories.edit', $category->id)}}" class="btn btn-warning">Editar</a>
+
+
                             <form class="btn" action="{{ route('categories.destroy', $category->id) }}" 
                                 method="POST"> 
                                 @csrf  

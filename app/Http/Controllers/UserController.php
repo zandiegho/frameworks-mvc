@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index(){
         $users = User::orderBy('created_at' , 'desc')->paginate(10);
-        return view('dashboard.users.index' , ['users' => $users]);
+        return view('dashboard.user.index' , ['users' => $users]);
     }
 
     public function create(){
@@ -42,5 +42,19 @@ class UserController extends Controller
         );
         return back()->with('status', 'Usuario creado con exito');
     }
+
+    public function edit(User $user){
+        return view( 'dashboard.user.edit' , ['user' => $user] );
+    }
+
+        public function update(StoreUserPost $request , User $user){
+            $user->update(
+                [
+                    'name' => $request['name'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                ]);
+            return back()->with('status', 'Usuario actualizado con exito');
+        }
 
 }

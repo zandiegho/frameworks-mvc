@@ -1,3 +1,4 @@
+   
 @csrf
 
 <div class="form-group">
@@ -14,9 +15,10 @@
 <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" name="password" 
-        value="{{ old('password', $user->password) }}">
+    value="{{ old('password', $user->password) }}">
 </diV>
 @endif
-<input type="submit" value="Enviar" class="btn btn-primery">
+<input type="submit" value="Enviar" class="btn btn-primary">
+
     
 

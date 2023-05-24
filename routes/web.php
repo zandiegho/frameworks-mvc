@@ -41,7 +41,7 @@ Route::get('/message-v2/{name?}' , function($name = "Usuario Visitante no identi
 
 #######################################################################
 Route::resource('dashboard/category', 'dashboard\CategoryController');#
-Route::resource('dashboard/user', 'dashboard\UserController');        #
+Route::resource('/user', 'dashboard\UserController');        #
                                                                       #
 // Route::get('/', 'web\WebController@index')->name('index');         #
 #######################################################################

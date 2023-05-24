@@ -15,12 +15,12 @@
 
                 <div class="form-group">
                     <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug for category" required>
+                    <input type="text" class="form-control " id="slug" name="slug" placeholder="Slug for category" required>
                 </div>
 
                 <br>
 
-                <button type="submit" class="form-control" id="btnEnviar">Registrar Categoria</button>
+                <button type="submit" class="btn btn-primary" id="btnEnviar">Registrar Categoria</button>
             </form>
 
         </div>

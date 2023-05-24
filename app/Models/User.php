@@ -46,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function rolUser(){
+    public function rol(){
         return $this->belongsTo(Rol::class);
     }
 }
