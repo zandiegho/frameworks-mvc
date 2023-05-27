@@ -20,13 +20,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
-        /* 
-        if (!Gate::allows('index', $posts[0])){
-            abort(403);
-        }
-        */
-        return view('dashboard/posts/index' , compact('posts'));
+        $posts = Post::paginate(5); 
+        
+        return view('dashboard.posts.index', compact('posts'));
     }
 
     /**
@@ -50,42 +46,71 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar y guardar los datos del nuevo registro
+        #$datos = $request->validate([
+            $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'posted' => 'required',
+            'category_id' => 'required',
+            // Otros campos y reglas de validación
+            ]);
+
+            $imgP = $request->file('image');
+            $imgName = time() . '_' . $imgP->getClientOriginalName();
+            $imgP->storeAs('public/img/', $imgName );
+            $rutaImagen = 'public/img' . $imgName;
+            
+            $postModel = new Post;
+            $postModel->title = $request->title;
+            $postModel->slug = $request->slug;
+            $postModel->description = $request->description;
+            $postModel->content = $request->content;
+            $postModel->image = $rutaImagen;
+            $postModel->posted = $request->posted;
+            $postModel->category_id = $request->category_id;
+            $postModel->save();
+
+
+    
+            #Post::create($datos);
+    
+            // Redirigir a la vista index.blade.php con un mensaje de éxito
+            return redirect()->route('showIndexPost')->with('success', 'Registro creado exitosamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
-    {
-        //
+    public function show($id){
+
+        $postPorId = Post::find($id);
+        return view('dashboard.posts.show', compact('postPorId'));
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
-    {
+    public function edit(Post $post){
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
-    {
+    public function update(Request $request, Post $post){
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
-    {
+    public function destroy(Post $post){
         //
     }
 
-/*     public function category(Category $category){
-        return $this->succesResponse($category->$post);
-    } */
 }

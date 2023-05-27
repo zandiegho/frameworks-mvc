@@ -53,6 +53,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/posts', PostController::class);
 Route::resource('/user', UserController::class);
 Route::resource('/categories', CategoryController::class)->name('index' , 'showIndex');
+Route::resource('/post', PostController::class)->name('index' , 'showIndexPost');
+
 
 
 
