@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['title' , 
-                            'url_clean'
+                            'slug'
                            
     ];
     # 1 categoria tiene muchas publicaciones, relaciona de uno a muchos -> hasMany

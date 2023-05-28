@@ -20,10 +20,25 @@
 
                 <br>
 
-                <button type="submit" class="btn btn-primary" id="btnEnviar">Registrar Categoria</button>
+                <div class="row justify-content-end">
+                    <div class="col-4 btn" >
+                        <button type="submit" class="btn btn-primary" id="btnEnviar">Registrar Categoria</button>
+                    </div>
+
+                    <div class="col-4 btn" >
+                        <button type="reset" class="btn btn-info" id="btnEnviar">Limpiar Campos</button>
+                    </div>
+
+                    <div class="col-4 btn">
+                        <a href="{{route('showIndex')}}" class="btn btn-info">Regresar al menu</a>
+                    </div>
+
+                </div> {{-- fin row --}}
             </form>
 
-        </div>
-    </div>
+        </div> {{-- fin form --}}
+
+
+    </div> {{-- fin container --}}
         
 @endsection

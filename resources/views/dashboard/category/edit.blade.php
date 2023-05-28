@@ -24,7 +24,7 @@
             </div>
 
             <div class="col">
-                
+
                 <div class="form-group">
 
                     <div class="label">
@@ -36,17 +36,22 @@
                 </div>
             </div>
 
+        </div> {{-- fin row --}}
 
-            <div class="col">
-                <div class="form-group">
-                    <div class="label">
-                        <label><label>
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-3">Guardar cambios</button>
-                </div>
+        <br>
+
+        <div class="row justify-content-center">
+
+            <div class="col btn">
+                <button type="submit" class="btn btn-primary mb-3">Guardar cambios</button>
             </div>
 
-        </div>
+            <div class="col btn">
+                <a href="{{route('showIndex')}}" class="btn btn-info">Regresar al menu</a>
+            </div>
+
+        </div> {{-- fin row --}}
+
     </form>
 </div>
 
