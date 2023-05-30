@@ -12,9 +12,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>TITULO</th>
-                    <th>Fecha de cración</th>
-                    <th>Acciones</th>
+                    <th>TITULO DE CATEGORÍA</th>
+                    <th>FRECHA DE CREACIÓN</th>
+                    <th>ACCIONES</th>
                 </tr>
             </thead>
 

@@ -61,8 +61,11 @@ class PostController extends Controller
 
             $imgP = $request->file('image');
             $imgName = time() . '_' . $imgP->getClientOriginalName();
-            $imgP->storeAs('public/img/', $imgName );
-            $rutaImagen = 'public/img' . $imgName;
+            $imgP->storeAs('/', $imgName );
+            $rutaImagen = 'img/' . $imgName;
+            
+            #\public\storage\img\1685234665_Leonardo_Diffusion_Generate_an_image_of_a_futuristic_robot_wit_1.jpg
+
             
             $postModel = new Post;
             $postModel->title = $request->title;
@@ -73,8 +76,6 @@ class PostController extends Controller
             $postModel->posted = $request->posted;
             $postModel->category_id = $request->category_id;
             $postModel->save();
-
-
     
             #Post::create($datos);
     
@@ -88,6 +89,7 @@ class PostController extends Controller
     public function show($id){
 
         $postPorId = Post::find($id);
+
         return view('dashboard.posts.show', compact('postPorId'));
         
     }
@@ -109,8 +111,13 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post){
+    public function destroy($id){
         //
+        $postD = Post::findOrFail($id);
+        $postD->delete();
+
+        // Redirigir a la vista index.blade.php con un mensaje de éxito
+        return redirect()->route('showIndexPost')->with('success', 'Registro eliminado exitosamente');
     }
 
 }

@@ -21,8 +21,10 @@
                 <td>{{ $p->posted }}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('posts.show', $p) }}">Ver</a>
+                    
                     <a class="btn btn-warning" href="{{ route('posts.edit', $p) }}">Editar</a>
-                    <form action="{{ route('posts.destroy', $p) }}" method="POST">
+                    
+                    <form class="btn" action="{{ route('posts.destroy', $p) }}" method="POST">
                         @csrf
                         @method("DELETE")
                         <button class="btn btn-danger mt-2" type="submit">Eliminar</button>
